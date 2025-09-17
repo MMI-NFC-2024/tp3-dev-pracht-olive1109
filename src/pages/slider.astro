@@ -64,6 +64,7 @@ import GraphicSpecies from "../components/GraphicSpecies.astro";
 <script>
     document.querySelector('#species-anchor-select')?.addEventListener('change', function(evt) {
         const value = (evt.target as HTMLSelectElement).value;
+        location.hash = value;
         const section = document.getElementById(value);
         section?.scrollIntoView({ behavior: 'smooth', inline: 'start' });
     });
