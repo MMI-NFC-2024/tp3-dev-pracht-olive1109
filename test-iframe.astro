@@ -3,10 +3,12 @@
 
 <h1>Visualisation par IFRAME</h1>
 <nav>
-	<a href="/species/Adelie" target="iframe-espece">Adelie</a> |
-	<a href="/species/Gentoo" target="iframe-espece">Gentoo</a> |
-	<a href="/species/Chinstrap" target="iframe-espece" >Chinstrap</a> |
-    <a href="/">Home</a>
+	<select id="species-iframe-select" style="font-size:1.2rem; padding:0.5rem 1rem;">
+		<option value="Adelie">Adelie</option>
+		<option value="Gentoo">Gentoo</option>
+		<option value="Chinstrap">Chinstrap</option>
+	</select>
+	<a href="/" style="margin-left:2rem;">Home</a>
 </nav>
 
 <iframe
@@ -16,6 +18,7 @@
 	style="border:1px solid #303030;"
 	onload="this.style.height = this.contentWindow.document.body.scrollHeight + 'px';"
 ></iframe>
+	
 
 <style>
 body, main {
@@ -53,3 +56,10 @@ iframe {
 	width: 90vw;
 }
 </style>
+
+<script>
+	document.querySelector('#species-iframe-select')?.addEventListener('change', function(evt) {
+		const value = (evt.target as HTMLSelectElement).value;
+		document.querySelector('iframe[name="iframe-espece"]')?.setAttribute('src', '/species/' + value);
+	});
+</script>
