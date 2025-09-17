@@ -1,0 +1,55 @@
+---
+---
+
+<h1>Visualisation par IFRAME</h1>
+<nav>
+	<a href="/species/Adelie" target="iframe-espece">Adelie</a> |
+	<a href="/species/Gentoo" target="iframe-espece">Gentoo</a> |
+	<a href="/species/Chinstrap" target="iframe-espece" >Chinstrap</a> |
+    <a href="/">Home</a>
+</nav>
+
+<iframe
+	src="/species/Adelie"
+	name="iframe-espece"
+	width="50%"
+	style="border:1px solid #303030;"
+	onload="this.style.height = this.contentWindow.document.body.scrollHeight + 'px';"
+></iframe>
+
+<style>
+body, main {
+	background: linear-gradient(90deg, #e0eafc 0%, #cfdef3 100%);
+	min-height: 100vh;
+}
+h1 {
+	text-align: center;
+	font-size: 2.2rem;
+	margin-bottom: 1.5rem;
+	color: #2c3e50;
+}
+nav {
+	text-align: center;
+	margin-bottom: 2rem;
+}
+nav a {
+	margin: 0 1rem;
+	color: #2980b9;
+	font-weight: bold;
+	text-decoration: none;
+	transition: color 0.2s;
+}
+nav a:hover {
+	color: #c0392b;
+}
+iframe {
+	display: block;
+	margin: 0 auto;
+	border-radius: 1rem;
+	box-shadow: 0 4px 24px rgba(44,62,80,0.10);
+	background: #fff;
+	min-height: 600px;
+	max-width: 900px;
+	width: 90vw;
+}
+</style>
